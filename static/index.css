@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+}
+
+img{
+    height: 2cm;
+    float: left;
+    position: relative;
+    
+}
+
+nav{
+    height: 2.5cm;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(170, 159, 159, 0.3);
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+}
+
+body{
+    background: linear-gradient(-45deg, #8e99a2,#253439,#fff6ea);
+    background-size: 1000% 2000%;
+    animation: gradient 20s ease infinite;
+}
+
+
+@keyframes gradient{
+    0%{
+        background-position: 0% 50%;
+      }
+      50%{
+        background-position: 100% 50%;
+      }
+    100%{
+        background-position: 0% 50%;
+      }
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(belleza/Belleza-Regular.ttf);
+}
+
+a{
+    font-family: myFirstFont;
+    /* font-weight: bolder;
+    font-size: larger; */
+}

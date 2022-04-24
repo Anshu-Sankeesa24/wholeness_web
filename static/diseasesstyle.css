@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+}
+.sidenav {
+    min-height: 18.7cm;
+    width: 310px;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    padding: 8px 0;
+    background-color: #8e99a2;
+    
+}
+h1{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 13px;
+    position: fixed;
+}
+.sidenav h2{
+    position: relative;
+    top: 70px;
+}
+h2 div{
+    padding: 40px;
+}  
+.content {
+      margin-left: 300px; /* Same width as the sidebar + left position in px */
+      font-size: 28px; /* Increased text to enable scrolling */
+      padding: 0px 20px;
+  }
+.sidenav a {
+    padding: 13px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 28px;
+    color: #2196F3;
+    display: block;
+}
+  
+.sidenav a:hover {
+    color: #064579;
+}

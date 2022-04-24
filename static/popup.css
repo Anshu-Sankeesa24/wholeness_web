@@ -1,0 +1,27 @@
+.popup-wrapper{
+    position: absolute;
+    width: 80vw;
+    min-width: 35cm;
+    max-width: 800px;
+    top: 0.6cm;
+    left: 2cm;
+    background-color: rgb(232, 117, 161);
+    min-height: 17cm;
+    padding: 15px;
+}
+
+.popup{
+    display: flex;
+    position: absolute;
+
+}
+iframe{
+    float: left;
+    height: 17cm;
+    width: 27cm;
+}
+
+.inactive{
+    display: none;
+    
+}

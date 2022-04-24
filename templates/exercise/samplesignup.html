@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin page</title>
+    <link rel="stylesheet" href="../../static/namepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+        
+    <form action='/signup' method='post'>
+        {% for message in messages %}
+        <div class="alret-{{message.tags}} alert-dismissible fade show" role='alert'>
+        <strong><center>{{message}}</center></strong> 
+        <!--   <button type ='button' class ='close' data-dimiss='alert' aria-label='close'> 
+        <span aria-hidden='true'>&times;</span> 
+        </button>     -->
+        </div>
+        {% endfor %}
+        
+    {% csrf_token %}
+    <h2><center><i>Enter your details</i></center></h2>
+    <div class="wrapper ">
+        <div class="container pt-3 ">
+        <!--<h2>enter your details</h2>  -->
+    
+        <div> <label for=''> Username </label> <input type='text' id='username' name="username" placeholder ="create a username (only letters and numbers" required></div>
+        
+        <div> <label for=''>First Name</label> <input type='text' id='fname' name="fname" placeholder ="enter your first name" required></div>
+        
+        <div> <label for=''>Last Name</label> <input type='text' id='lname' name="lname" placeholder ="enter your last name" required></div>
+        
+        <div> <label for=''>Email id  </label> <input type='email' id='email' name="email" placeholder ="enter email id" required></div>
+        
+        <div> <label for=''>Password  </label> <input type='password' id='pass1' name="pass1" placeholder ="enter password" required></div>
+        
+        <div> <label for=''>Confirm Password</label> <input type='password' id='pass2' name="pass2" placeholder ="conform password" required></div>
+    
+        
+        <button type="submit">SignUp</button>
+        <div>if already registered? <a href="/signin"><b>SignIn</b></a></div>
+        </div>
+    </div>
+
+    </form>
+    <script src='' async defer> </script>
+</body>
+</html>

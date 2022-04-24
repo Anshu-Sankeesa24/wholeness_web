@@ -1,0 +1,122 @@
+body{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 3cm;
+
+}
+
+.container{
+    background-color: rgb(189, 104, 115);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 4px;
+    height: 12cm;
+    width: 9cm;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(167, 161, 158);
+}
+
+img{
+    border-radius: 50%;
+    height: 2.5cm;
+    width: 2.5cm;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+
+span{
+    height: 2.5cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.fa{
+    position: relative;
+    right: 10px;
+}
+
+input{
+    border-radius: 15px;
+    height: 30px;
+    width: 5cm;
+    background-color: #cde2e4;
+    padding: 8px 25px;
+    margin: 8px 0px;
+    border: none;
+}
+
+input[type=password]{
+    position: relative;
+    left: 1px;
+}
+
+input:focus {
+    background-color: rgb(228, 199, 199);
+    
+}
+
+button{
+    color: rgb(70, 76, 78);
+    background-color: #bce4bc;
+    width: 3.5cm;
+    border-radius: 30px;
+    padding: 10px 14px;
+}
+
+button:hover{
+    background-color: darkgray;
+    cursor: pointer;
+}
+
+.forgot{
+    position: relative;
+    left: 2.5cm;
+}
+
+a{
+    color: rgb(40, 221, 221);
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(47, 60, 240);
+}
+
+a:visited{
+    color: rgb(170, 158, 236);
+}
+
+
+body{
+    background: linear-gradient(-45deg, #8e99a2,#253439,#fff6ea);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.container{
+    /* background: linear-gradient(-45deg, #8e99a2,#253439,#fff6ea);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite; */
+    background-color: #ffffff10;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+@keyframes gradient{
+      0%{
+          background-position: 0% 50%;
+        }
+      50%{
+          background-position: 100% 50%;
+        }
+      100%{
+          background-position: 0% 50%;
+        }
+}

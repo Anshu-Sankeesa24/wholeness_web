@@ -1,0 +1,16 @@
+body{
+  background-color: rgb(40, 39, 39);
+  
+}
+
+.image{
+  display: flex;
+  justify-content: center;
+  
+}
+
+/*
+main img{
+  max-width: 100%;
+}
+*/

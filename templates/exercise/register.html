@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="../../static/register.css">
+</head>
+<body>
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info">{{ message}}</div>
+    {% endfor %}
+    {% endif %}
+    <div class="title">
+        <img src="../../static/wholenesslogo.png" alt="">
+    </div>
+        
+    <!-- multistep form -->
+    <form action ="/signup" method ="POST" id="msform">
+        {% csrf_token %}
+        
+        <div class="col-md-4">
+            <!-- progressbar -->
+             <!-- <ul id="progressbar">
+                <li class="active">name</li>
+                <li>gender</li>
+                <li>age</li>
+                <li>height</li>
+                <li>weight</li>
+            </ul>  -->
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title" >What's Your Name</h2>
+                <h3 class="fs-subtitle">This is step 1</h3>
+                <input type="text"  name="fname" placeholder="First name"
+                    required />
+                <input type="text" name="lname" placeholder="Last name" required/>
+                <input type="button" name="next" class="next action-button" value="Next" />
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </fieldset>
+    
+            <fieldset>
+                <div>
+                    <h2 class="fs-title">What's Your Gender ?</h2>
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                    <label class="form-check-label" for="male">Male</label>
+    
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">Female</label>
+    
+                    <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                    <label class="form-check-label" for="other">Others</label>
+                </div>
+    
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+    
+            <fieldset>
+                <h2 class="fs-title">enter your date of birth</h2>
+                <h3 class="fs-subtitle">select from calendar</h3>
+                <input type="date" id="dob" name="dob">
+    
+                <input type="button" name="previous" class="previous action-button" value="Previous" required />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">What's your height</h2>
+                <h3 class="fs-subtitle">select from dropdown</h3>
+                <div class="input-group mb-3">
+                    <input type="number" step="any" class="form-control" name="height" placeholder="height"
+                        id=validationTooltip2 required />
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>select</option>
+                        <option value="meter">feets</option>
+                        <option value="inch">inch</option>
+                        <option value="centimeter">cm</option>
+                        <option value="meter">m</option>
+                    </select>
+                </div>
+                <div class="invalid-tooltip">
+                    Please provid a valid height
+                </div>
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+    
+            <fieldset>
+                <h2 class="fs-title">What's your weight</h2>
+                <h3 class="fs-subtitle">select from dropdown</h3>
+                <div class="input-group mb-3">
+                    <input type="number" step="any" class="form-control" name="weight" placeholder="weight"
+                        id=validationTooltip3 required />
+    
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>select</option>
+                        <option value="kilo">kg</option>
+                        <option value="pounds">lbs</option>
+                        <option value="ounce">oz</option>
+                    </select>
+                </div>
+                <div class="invalid-tooltip">
+                    Please provid a valid weight
+                </div>
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">verify you email id</h2>
+                <h3 class="fs-subtitle">last step</h3>
+                <input type="email" name="email" placeholder="Email id" id=validationTooltip4 required />
+                <div class="invalid-tooltip">
+                    Please provide a valid email address.
+                </div>
+                <input type="checkbox" id="click">
+                <button type="submit" class="btn btn-primary btn-block mt-2 ">
+                <label  for ="click"  ><a>Verify</a></label> </button>
+                <div class="content">
+                    <div class ='header'>
+                        <h2>Modal Popup</h2>
+                        <label for ='click' class="fas fa-times"></label>
+                    </div>
+                    <label for ='click' class ='fas fa-check'></label>
+                    <p>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-info">{{ message}}</div>
+                        {% endfor %}
+                    {% endif %}
+                </p>
+                    <div class ='line'></div>
+                        <label for ="click" class = 'close-btn'>Close</label>
+                    
+                </div> 
+                
+                
+            </fieldset>
+            
+        </div>
+    </form>
+</div>
+             
+    
+
+<script>
+    
+        //jQuery time
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(".next").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'absolute'
+                    });
+                    next_fs.css({ 'left': left, 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({ 'left': left });
+                    previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".submit").click(function () {
+            return false;
+        })
+
+</script>
+</body>
+</html>

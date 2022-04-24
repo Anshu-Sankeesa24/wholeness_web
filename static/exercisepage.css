@@ -1,0 +1,16 @@
+body{
+    background-color: aliceblue;
+}
+
+iframe{
+    height: 15cm;
+    width: 25cm;
+    float: left;
+}
+
+.submit{
+    position: relative;
+    float: right;
+    left: 5cm;
+    padding: 10px;
+}

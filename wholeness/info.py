@@ -1,0 +1,5 @@
+EMAIL_USE_TLS=True
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_HOST_USER='wholeness27@gmail.com'
+EMAIL_HOST_PASSWORD="21284762"
+EMAIL_PORT=587

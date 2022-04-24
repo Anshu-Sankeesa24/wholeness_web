@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+welcome to Wholeness 
+
+hello {{ name }} !
+
+please confirm your e-mail by clicking on the follwing link .
+
+confirmation link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

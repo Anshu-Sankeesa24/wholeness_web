@@ -1,0 +1,279 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	background-color: rgb(0, 0, 0);
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    /* background: linear-gradient(-45deg, #f14c8f, #fbc1c1,#f9db7b, #97ae); */
+   /* background: linear-gradient(-45deg, #f5b301, #fed053,#f9db7b, #97ae); */
+  background: linear-gradient(-45deg,#253439,#8e99a2,#fff6ea);
+  /* background: linear-gradient(-45deg, #01a66f, #75ce9f,#bdd99e, #ffc06e); */
+     background-size: 100% 1%;
+     animation: gradient 20s ease infinite;
+}
+
+body {
+	
+	font-family: montserrat, arial, verdana;
+}
+
+img{
+    height: 3cm;
+    width: 3cm;
+	position: relative;
+	left: 3.8cm;
+	top: 10px;
+}
+/*form styles*/
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 20px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 20px;
+	text-transform:capitalize; 
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight:lighter;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+  
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: #40555c;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(anydore/Anydore.otf);
+}
+@font-face {
+    font-family: mySecondFont;
+    src: url(als-script/alsscrp.ttf);
+}
+
+h1{
+    font-family: mySecondFont;
+    font-size: 3.5em;
+    margin: 20px;
+    text-align: center;
+}
+
+h2{
+    font-family: myFirstFont;
+}
+
+
+
+
+
+
+
+.content{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+
+} 
+#click{
+	display:none;
+}
+.btn {
+	display: block;
+	background:#27ae60;
+	color: white; 
+	text-align:center;
+	transition: .5s;
+	width:130px;
+	height:50px;
+	border:1px solid #26a65b;
+	font-size:18px;
+	border-radius:3px;
+	line-height: 50px;
+}
+.btn:hover{
+	background:#219150;
+} 
+.content{
+	opacity: 0;
+	visibility: hidden;
+	background:white;
+	width: 400px;
+	height: 350px;
+	border-radius:3px;
+	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4);
+}
+#click:checked ~.content{
+	opacity:1;
+	visibility:visible;
+}
+.header{
+	height: 68px;
+	background: #27ae60;
+	overflow: hidden;
+	border-radius: 3px 3px 0 0;
+	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+.header h2{
+	color:white;
+	padding-left: 32px;
+	font-weight: normal;
+
+}
+.fa-times{
+	position: absolute;
+	right: 20px;
+	top:20px;
+	color:#e8f7fc;
+	font-size:20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.fa-check{
+	font-size: 50px;
+	color:#27ae60;
+	font-weight:bold;
+	height: 80px;
+	width: 80px;
+	border: 1px solid #27ae60;
+	text-align: center;
+	padding-top: 13px;
+	border-radius: 50px;
+	box-sizing: border-box;
+	margin: 30px 0 0 160px;
+}
+p{
+	padding-top: 10px;
+	font-size: 19px;
+	color: #1a1a1a;
+	text-align:center;
+
+}
+.line{
+	position: absolute;
+	bottom:65px;
+	width:100%;
+	height:1px;
+	background: silver;
+}
+.close-btn{
+	position: absolute;
+	bottom:12px;
+	right:25px;
+	border: 1px solid #27ae60;
+	color:#27AE60;
+	padding: 8px 10px;
+	font-size:18px;
+	cursor: pointer;
+
+}
+.close-btn:hover{
+	background: #27ae60;
+	color:white;
+	transition:.5s;
+
+}
+
