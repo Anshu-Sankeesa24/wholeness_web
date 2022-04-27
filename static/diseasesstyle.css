@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    box-sizing: content-box;
 }
 .sidenav {
     min-height: 18.7cm;
@@ -15,7 +16,7 @@ h1{
     background-color: #253439;
     color: #fff6ea;
     display: fixed;
-    padding: 13px;
+    padding: 21.3px;
     position: fixed;
 }
 .sidenav h2{
@@ -40,4 +41,12 @@ h2 div{
   
 .sidenav a:hover {
     color: #064579;
+}
+.disnames{
+    position: relative;
+    left: 23px;
+}
+.mainames{
+    position: relative;
+    top: 30px;
 }
