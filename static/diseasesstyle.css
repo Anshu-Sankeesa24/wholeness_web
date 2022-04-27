@@ -12,13 +12,32 @@ body{
     background-color: #8e99a2;
     
 }
-h1{
+.pancreasdis{
     background-color: #253439;
     color: #fff6ea;
     display: fixed;
     padding: 21.3px;
     position: fixed;
+    /* padding-right: 1.8cm; */
 }
+
+.heartdis{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+    padding-right: 1.8cm;
+}
+.respiratorydis{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+    
+}
+
 .sidenav h2{
     position: relative;
     top: 70px;
@@ -48,5 +67,5 @@ h2 div{
 }
 .mainames{
     position: relative;
-    top: 30px;
+    top: 17px;
 }
