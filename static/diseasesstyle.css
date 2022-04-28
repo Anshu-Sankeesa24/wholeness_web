@@ -1,6 +1,16 @@
 body{
     margin: 0;
+    box-sizing: content-box;
 }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+   .sidenav h1{
+      position: relative;
+      bottom: 30px;
+  } 
 .sidenav {
     min-height: 18.7cm;
     width: 310px;
@@ -11,19 +21,43 @@ body{
     background-color: #8e99a2;
     
 }
-h1{
+.pancreasdis{
     background-color: #253439;
     color: #fff6ea;
     display: fixed;
-    padding: 13px;
+    padding: 21.3px;
     position: fixed;
+    /* padding-right: 1.8cm; */
 }
+
+
+.heartdis{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+    padding-right: 1.8cm;
+}
+.respiratorydis{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 15px;
+    position: fixed;
+    padding-left: 1.7cm;
+    padding-right: 1.71cm;
+    
+}
+
 .sidenav h2{
     position: relative;
     top: 70px;
 }
 h2 div{
-    padding: 40px;
+    padding-top: 45px;
+    padding-left: 30px;
+    margin-left: 15px;
 }  
 .content {
       margin-left: 300px; /* Same width as the sidebar + left position in px */
@@ -34,10 +68,18 @@ h2 div{
     padding: 13px 8px 6px 16px;
     text-decoration: none;
     font-size: 28px;
-    color: #2196F3;
+    color: #000000;
     display: block;
 }
   
 .sidenav a:hover {
-    color: #064579;
+    color: #303335;
+}
+.disnames{
+    position: relative;
+    left: 23px;
+}
+.mainames{
+    position: relative;
+    bottom: 3cm;
 }
