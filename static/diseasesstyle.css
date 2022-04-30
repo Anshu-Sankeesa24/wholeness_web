@@ -49,6 +49,21 @@ html {
     padding-right: 1.71cm;
     
 }
+.bladdercon{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+    
+}
+.digdis{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+}
 
 .sidenav h2{
     position: relative;
