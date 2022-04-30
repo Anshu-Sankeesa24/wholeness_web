@@ -34,7 +34,7 @@ def home(request,user=''):
     # dob=user.dob
     # age=datetime.today-dob
     # gender=user.gender
-    context={ "age":50,  "gender":'male'}
+    context={ "age":50,  "gender":'female'}
    
 
 
@@ -155,7 +155,7 @@ def profile(request):
     return render(request,'Exercise/profilepage.html')
 
 def diseases(request):
-    return render(request,'Exercise/diseasemainpage.html')
+    return render(request,'diseases/diseasemainpage.html')
 
 def food(request):
     return render(request,'Exercise/foodpage.html')
