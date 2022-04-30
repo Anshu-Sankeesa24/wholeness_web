@@ -29,6 +29,7 @@ import sys
 def index(request):
     return render(request,"Exercise/index.html")
 
+
 def home(request,user=''):
     
     # dob=user.dob
