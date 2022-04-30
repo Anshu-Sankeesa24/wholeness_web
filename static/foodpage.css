@@ -27,12 +27,11 @@ body{
 
 img{
 
-height: 6cm;
-width: 8.5cm;
-border-radius: 20px;
-padding: 10px;
-position: relative;
-right: 8px;
+height: 12cm;
+width: 12cm;
+border-radius: 9px;
+padding: 7px;
+border: #808592;
 }  
 
 .calories{
@@ -67,13 +66,13 @@ width: 50cm;
 }
 .Box{
 background-color: #808592;
-
+box-shadow: 2px 2px 2px 2px;
 text-align: center;
-height: 13cm;
-flex-basis: 13cm;
+height: 12cm;
+flex-basis: 12cm;
 border-radius: 15px;
 position: relative;
-left: 6.5cm;
+left: 7cm;
 top: 1cm;
 }
 .wname{
@@ -101,7 +100,10 @@ position: relative;
 left: 60px;
 }
 
-
+.veg,.nonveg{
+  position: relative;
+  top: 10px;
+}
 
 
 .likediv{
