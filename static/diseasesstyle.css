@@ -49,13 +49,28 @@ html {
     padding-right: 1.71cm;
     
 }
+.bladdercon{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+    
+}
+.digdis{
+    background-color: #253439;
+    color: #fff6ea;
+    display: fixed;
+    padding: 21.3px;
+    position: fixed;
+}
 
 .sidenav h2{
     position: relative;
     top: 70px;
 }
 h2 div{
-    padding-top: 45px;
+    padding-top: 30px;
     padding-left: 30px;
     margin-left: 15px;
 }  
@@ -70,6 +85,8 @@ h2 div{
     font-size: 28px;
     color: #000000;
     display: block;
+    position: relative;
+    right: 15px;
 }
   
 .sidenav a:hover {
@@ -82,4 +99,11 @@ h2 div{
 .mainames{
     position: relative;
     bottom: 3cm;
+}
+
+.heartdmainames{
+    position: relative;
+    bottom: 3.7cm;
+    right: 20px;
+    padding-bottom: -50px !important;
 }
