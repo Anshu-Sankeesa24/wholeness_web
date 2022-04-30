@@ -1,190 +1,311 @@
 body{
-    margin: 0;
-    background: #8e99a2;
+  margin: 0;
+  /* background: #8e99a2; */
 }  
 /* .sidenav {
-    min-height: 18.5cm;
-    width: 150px;
-    position: fixed;
-    z-index: 1;
-    background: #eee;
-    overflow-x: hidden;
-    padding: 8px 0;
+  min-height: 18.5cm;
+  width: 150px;
+  position: fixed;
+  z-index: 1;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
 }
-  
+
 .sidenav a {
-    padding: 13px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 28px;
-    color: #2196F3;
-    display: block;
+  padding: 13px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 28px;
+  color: #2196F3;
+  display: block;
 }
-  
+
 .sidenav a:hover {
-    color: #064579;
+  color: #064579;
 } */
 
 
 img{
-  
-  height: 6cm;
-  width: 8cm;
-  border-radius: 20px;
-  padding: 10px;
+
+height: 6cm;
+width: 8.5cm;
+border-radius: 20px;
+padding: 10px;
+position: relative;
+right: 8px;
 }  
 
 .calories{
-  position: absolute;
-  left: 30px;
-  top: 30px;
-  color: #e6cdcd;
-  font-weight: bolder;
-  font-size: large;
-  font-style: italic;
-  text-shadow: -1px 1px 0 #2b94f0,
-                1px 1px 0 #db2121,
-                2px 2px 0 #a35a5a;
+position: absolute;
+left: 30px;
+top: 17px;
+color: #e6cdcd;
+font-weight: bolder;
+font-size: large;
+font-style: italic;
+text-shadow: -1px 1px 0 #2b94f0,
+              1px 1px 0 #db2121,
+              2px 2px 0 #a35a5a;
 }
 
-.container {
-  margin-left: 20px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 28px;
-    row-gap: 28px;
+.Container {
+margin-left: 20px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 28px;
+  row-gap: 28px;
+  position: relative;
+  top: 20px;
+  padding-bottom: 10px;
 }
 h2{
-  display: block;
-  width: 50cm;
-  
+display: block;
+width: 50cm;
+
 }
 .Box{
-  background-color: #565a5e;
-  background: #253439;
-  text-align: center;
-  height: 11cm;
-  flex-basis: 9cm;
-  border-radius: 15px;
-  position: relative;
+background-color: #808592;
+
+text-align: center;
+height: 13cm;
+flex-basis: 13cm;
+border-radius: 15px;
+position: relative;
+left: 6.5cm;
+top: 1cm;
 }
 .wname{
-  font-family: myFirstFont;
-  color: #fff6ea;
-  float: left;
-  padding-left: 25px;
-  padding-bottom: 15px;
+font-family: myFirstFont;
+color: #fff6ea;
+float: left;
+padding-left: 25px;
+padding-bottom: 15px;
 }
 .description{
-  font-size: large;
-  float: left;
-  background-color: #5f676e;
-  width: 8cm;
-  position: relative;
-  left: 20px;
-  top: 10px;
-  border-radius: 6px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+font-size: large;
+float: left;
+background-color: #caccd1;
+width: 8cm;
+position: relative;
+left: 20px;
+
+border-radius: 6px;
+
+padding-bottom: 8px;
 }
 .fa-calendar{
-  color: #fff6ea;
-  position: relative;
-  left: 60px;
+color: #fff6ea;
+position: relative;
+left: 60px;
 }
 
 
 
 
 .likediv{
-  position: absolute;
-  float: left;
-  top: 20px;
-  left: 7cm;  
+position: absolute;
+float: left;
+top: 8px;
+left: 7cm;  
 }
 
 .like {
-  cursor:pointer;
-  padding:10px 12px 8px;
-  
-  border-radius:50%;
-  display:inline-block;
-  margin:0 0 15px;
-  color:#aaa;
-  transition:.2s;
-  
+cursor:pointer;
+padding:10px 12px 8px;
+
+border-radius:50%;
+display:inline-block;
+margin:0 0 15px;
+color:#aaa;
+transition:.2s;
+
 }
 
 .like:hover {
-  color:#666;
+color:#666;
 }
 
 .like:before {
-  font-family:fontawesome;
-  content:'\f004';
-  font-style:normal;
+font-family:fontawesome;
+content:'\f004';
+font-style:normal;
 }
 
 span {
-  position: absolute;
-  bottom:70px;
-  left:0;
-  right:0;
-  visibility: hidden;
-  transition:.6s;
-  z-index:-2;
-  font-size:2px;
-  color:transparent;
-  font-weight:400;
+position: absolute;
+bottom:70px;
+left:0;
+right:0;
+visibility: hidden;
+transition:.6s;
+z-index:-2;
+font-size:2px;
+color:transparent;
+font-weight:400;
 }
 
 .like.press {
-  animation: size .4s;
-  color:#e23b3b;
+animation: size .4s;
+color:#e23b3b;
 }
 
 span.press {
-  bottom:120px;
-  font-size:14px;
-  visibility:visible;
-  animation: fade 1s;
+bottom:120px;
+font-size:14px;
+visibility:visible;
+animation: fade 1s;
 }
 
-
-
-
-
-
+.fa-close, img{
+cursor: pointer;
+float: right;
+}
 
 
 
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+
 }
 
 @font-face {
-  font-family: myFirstFont;
-  src: url(belleza/Belleza-Regular.ttf);
+font-family: myFirstFont;
+src: url(belleza/Belleza-Regular.ttf);
 }
 
 button{
-  font-family: myFirstFont;
-  /* font-weight: bolder;
-  font-size: larger; */
+font-family: myFirstFont;
+/* font-weight: bolder;
+font-size: larger; */
 }
 @font-face {
-  font-family: mySecondFont;
-  src: url(als-script/alsscrp.ttf);
+font-family: mySecondFont;
+src: url(als-script/alsscrp.ttf);
 }
 
 
 h2{
-  font-family: mySecondFont;
-  color: #253439;
-  font-size: 180%;
-  /* font-weight: bolder;
-  font-size: larger; */
+font-family: mySecondFont;
+color: #253439;
+font-size: 180%;
+/* font-weight: bolder;
+font-size: larger; */
+}
+
+
+/*for navbar*/
+
+.logo{
+border-radius: 50%; 
+height: 2cm;
+width: 2cm;
+position: relative;
+left: 20px;
+}
+
+.dropdown{
+position: relative;
+right: 20px;
+}
+
+.dropdown-menu {
+min-width:20px !important;
+}
+
+form {
+background-color: #ffffff;
+width: 250px;
+height: 44px;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+input {
+all: unset;
+font: 16px system-ui;
+height: 100%;
+width: 100%;
+}    
+
+.fa-user{
+color: #253439;
+}
+
+
+::placeholder {
+position: relative;
+left: 5px;
+color: #253439;
+opacity: 0.9; 
+}
+
+button {
+all: unset;
+cursor: pointer;
+width: 44px;
+height: 44px;
+}
+
+form i{
+color: rgb(27, 27, 26);
+background-color: rgb(66, 84, 189);
+padding: 14px;
+cursor: pointer;
+}
+
+@media screen and (max-width: 820px){
+.container-fluid{
+        display: flex;
+        flex-direction: column;
+        height: 12cm;
+    }
+
+.dropdown{
+    position: relative;
+    left: 0;
+}    
+
+.logo{
+  position: relative;
+  left: -10px;
+}
+
+
+}
+input{
+background-color: #fff6ea;
+}
+
+form i{
+color: #fff6ea;
+background-color: #253439;
+}
+
+
+.navbar{
+background: #808592 !important;
+padding: 10px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+
+
+
+@font-face {
+font-family: myFirstFont;
+src: url(belleza/Belleza-Regular.ttf);
+}
+
+a{
+font-family: myFirstFont;
+/* font-weight: bolder;
+font-size: larger; */
 }
