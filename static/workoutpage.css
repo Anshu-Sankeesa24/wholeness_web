@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background: #8e99a2;
+    /* background: #8e99a2; */
 }  
 /* .sidenav {
     min-height: 18.5cm;
@@ -31,6 +31,8 @@ img{
   width: 8cm;
   border-radius: 20px;
   padding: 10px;
+  position: relative;
+  right: 8px;
 }  
 
 .calories{
