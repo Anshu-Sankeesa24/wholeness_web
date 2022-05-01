@@ -34,7 +34,7 @@ def home(request,user=''):
     # dob=user.dob
     # age=datetime.today-dob
     # gender=user.gender
-    context={ "age":50,  "gender":'female'}
+    context={ "age":50,  "gender":'male'}
    
 
 
