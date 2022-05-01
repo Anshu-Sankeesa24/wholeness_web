@@ -24,15 +24,21 @@ body{
   color: #064579;
 } */
 
+.container a{
+  text-decoration: none;
+}
 
 img{
 
 height: 12cm;
 width: 12cm;
 border-radius: 9px;
-padding: 7px;
+padding: 4px;
 border: #808592;
 }  
+.mains{
+  display: flex;
+}
 
 .calories{
 position: absolute;
