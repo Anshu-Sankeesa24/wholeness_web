@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Page</title>
-    <link rel="stylesheet" href="../../static/foodpage.css">
-    <link rel="stylesheet" href="../../static/popup.css">
+    <title>Workouts</title>
+    <link rel="stylesheet" href="../../static/vevng.css">
   <!-- jquery link -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- font awesome link -->
@@ -65,74 +64,79 @@
     </nav>
 </header>
   
-  
+    <div class="Container">
 
-    <!-- <div class="sidenav">
-        <a href="#filter1">filter1</a>
-        <a href="#filter2">filter2</a>
-        <a href="#filter3">filter3</a>
-        <a href="#filter4">filter4</a>
-        <a href="#filter5">filter5</a>
-        <a href="#filter6">filter6</a>
-      </div> -->
+        <div class="Box">
+        
+            <a href="../exercise/pullup.html"><img src="../../static/workout1.jpg" alt=""></a>
+            <div class="wname">Pull Ups</div>
 
-    <div class="Container">   
+            <div class="calories">Cal:-123</div>
 
-      <a href="../exercise/nvbled.html">
-        <div class="Box">   
-          <img src="../../static/nonvegimg.webp" alt="">
-          <!-- <div class="nonveg">Non-Veg</div> -->
-          <a href="">Non-Veg</a>
+            <div class="likediv">
+              <i class="like" data-liked="false"></i>
+              <span>liked!</span>
+            </div>
+
+            <div class="description">details for pull ups</div>
+           
+        </div>
+
+        <div class="Box">
+            
+          <img src="../../static/workout2.jpg" alt="">
+          <div class="calories">Cal:-123</div>
+
+          <div class="likediv">
+            <i class="like" data-liked="false"></i>
+            <span>liked!</span>
+          </div>
+          
+          <div class="wname">Push Ups</div>
+
+          <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, molestiae nam nveudhfjd ndwjdujnds njndwaa nndnnnn</div>
+         
       </div>
-      </a>
+        
+      <div class="Box">
+            
+        <img src="../../static/workout3.jpg" alt="">
+        <div class="calories">Cal:-123</div>
 
-      <br>
+        <div class="likediv">
+          <i class="like" data-liked="false"></i>
+          <span>liked!</span>
+        </div>
+        
+        <div class="wname">Push Ups</div>
 
-      <a href="../exercise/vbled.html">
-        <div class="Box">        
-          <img src="../../static/vegimg.jpg" alt="">
-          <!-- <div class="veg">Veg</div> -->
-          <a href="">Veg</a>
+        <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, molestiae nam nveudhfjd ndwjdujnds njndwaa nndnnnn</div>
+       
+    </div>
+        
+    <div class="Box">
+            
+      <img src="../../static/workout4.webp" alt="">
+      <div class="calories">Cal:-123</div>
+
+      <div class="likediv">
+        <i class="like" data-liked="false"></i>
+        <span>liked!</span>
       </div>
-      </a> 
+      
+      <div class="wname">Push Ups</div>
 
+      <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, molestiae nam nveudhfjd ndwjdujnds njndwaa nndnnnn</div>
+     
   </div>
         
-      
-    
+        <div class="Box">Box 1</div>
+        <div class="Box">Box 2</div>
+        <div class="Box">Box 3</div>
+        <div class="Box">Box 4</div>
         
     </div>
 
 </body>
 
-<script>
-    const like_button = document.querySelectorAll('i.like');
-    const popup =document.getElementsByClassName('popup-wrapper')[0];
-    console.log(like_button)
-    like_button.forEach((i,index)=>i.addEventListener('click',(e)=>{
-      e.target.classList.toggle('press');
-      if(e.target.classList.contains('press')){
-        e.target.dataset.liked="true";
-        console.log(e.target.dataset);
-      }
-      else{
-        e.target.dataset.liked="false";
-        console.log(e.target.dataset)
-      }
-    }))   
-
-    function popupStatus(e){
-
-      const videoPlay = document.querySelectorAll('.video-play');
-
-      console.log(videoPlay);
-      this.addEventListener('click',()=>{popup.classList.remove('inactive');})
-      
-    }
-
-    function closePopUp(){
-      this.addEventListener('click',()=>{popup.classList.add('inactive')})
-    }
-
-</script>
 </html>
