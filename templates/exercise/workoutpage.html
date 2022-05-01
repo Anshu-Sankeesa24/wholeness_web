@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workouts</title>
     <link rel="stylesheet" href="../../static/workoutpage.css">
-    <link rel="stylesheet" href="../../static/popup.css">
   <!-- jquery link -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- font awesome link -->
@@ -82,14 +81,9 @@
 
 
         <div class="Box">
-
-            
-            <a href="/exercise"><img src="../../static/workout1.jpg" alt=""></a>
-
-          <div class="video-play" data-link="https://youtu.be/b2l4zTS8lPg" onclick=popupStatus()>
-            <!-- <img src="../../static/workout1.jpg" alt=""> -->
+        
+            <a href="../exercise/pullup.html"><img src="../../static/workout1.jpg" alt=""></a>
             <div class="wname">Pull Ups</div>
-          </div>
 
             <div class="calories">Cal:-123</div>
 
@@ -157,51 +151,7 @@
         <div class="Box">Box 4</div>
         
     </div>
-    <div class="popup-wrapper inactive">
-      <div class="pop-up">
-        <i class="fa fa-close" style="font-size: 24px;" onclick="closePopUp()"></i>
-        <iframe width="50%" height="50%" src="https://www.youtube.com/embed/l-EkcthUMl4?list=PLfqMhTWNBTe3H6c9OGXb5_6wcc1Mca52n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <div class="video-wrapper"></div>
-          <div class="info-wrapper">
-            <div class="heading">PUSH-UPS</div>
-            <div class="text-info">Lorem ipsum, dolor sit amet
-               consectetur adipisicing elit. Et quis, eum magni 
-               unde velit a alias quidem itaque tempore, earum 
-               laboriosam? Accusantium repellendus temporibus esse 
-              itaque quisquam odio deleniti praesentium.</div>
-          </div>
-      </div>
-    </div>
+
 </body>
 
-<script>
-    const like_button = document.querySelectorAll('i.like');
-    const popup =document.getElementsByClassName('popup-wrapper')[0];
-    console.log(like_button)
-    like_button.forEach((i,index)=>i.addEventListener('click',(e)=>{
-      e.target.classList.toggle('press');
-      if(e.target.classList.contains('press')){
-        e.target.dataset.liked="true";
-        console.log(e.target.dataset);
-      }
-      else{
-        e.target.dataset.liked="false";
-        console.log(e.target.dataset)
-      }
-    }))   
-
-    function popupStatus(e){
-
-      const videoPlay = document.querySelectorAll('.video-play');
-
-      console.log(videoPlay);
-      this.addEventListener('click',()=>{popup.classList.remove('inactive');})
-      
-    }
-
-    function closePopUp(){
-      this.addEventListener('click',()=>{popup.classList.add('inactive')})
-    }
-
-</script>
 </html>

@@ -27,6 +27,9 @@
     right: 2.4cm;
 }
 
+.menu_text a:hover{
+    color: #000;
+}
 /* .row{
     display: flex !important;
     position: sticky !important;
