@@ -27,16 +27,15 @@
     right: 2.4cm;
 }
 
-
-
-
-
-
-
-
-
-
-
+/* .row{
+    display: flex !important;
+    position: sticky !important;
+    top: 0;
+}
+ul{
+    display: flex;
+    list-style: none;
+} */
 
 
 * {
@@ -811,7 +810,7 @@ button {
     float: left;
     font-size: 30px;
     color: #fffcf4;
-    border-bottom: 0px solid#49bcfe;
+    border-bottom: 0px solid #49bcfe;
     padding-top: 20PX;
 }
 
