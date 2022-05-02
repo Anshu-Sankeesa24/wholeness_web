@@ -6,6 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After Verification</title>
     <link rel="stylesheet" href="../../static/namepage.css">
+    <style>
+        body{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    /* background: linear-gradient(-45deg, #f14c8f, #fbc1c1,#f9db7b, #97ae); */
+   /* background: linear-gradient(-45deg, #f5b301, #fed053,#f9db7b, #97ae); */
+  background: linear-gradient(-45deg,#253439,#8e99a2,#fff6ea);
+  /* background: linear-gradient(-45deg, #01a66f, #75ce9f,#bdd99e, #ffc06e); */
+     background-size: 100% 1%;
+     animation: gradient 20s ease infinite;
+}
+img{
+    height: 3cm;
+    width: 3cm;
+}
+
+h2{
+    font-family: mySecondFont;
+    color: #253439;
+    font-size: 180%;
+    /* font-weight: bolder;
+    font-size: larger; */
+}
+a{
+    text-decoration: none;
+    color: #fff6ea;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 13cm;
+    width: 10cm;
+}
+
+
+div{
+    color: rgb(0, 0, 0);
+    padding: 5px;
+}
+
+input{
+    color: white;
+    height: 1.2cm;
+    width: 6cm;
+    position: relative;
+    top: 0.7cm;
+    border-radius: 8px;
+    background-color: #fff6ea;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #253439;
+}
+
+::placeholder{
+    position: relative;
+    left: 10px;
+}
+
+button{
+    margin: 5px;
+    height: 1.5cm;
+    width: 4cm;
+    border-radius: 8px;
+    color: wheat;
+    background-color: #253439;
+    cursor: pointer;
+    position: relative;
+    top: 2.6cm;
+    font-family: myFirstFont;
+    /* font-weight: bolder;
+    font-size: larger; */
+}
+
+
+button:hover{
+    background-color: #292f31;;
+}
+
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(belleza/Belleza-Regular.ttf);
+}
+
+
+@font-face {
+    font-family: mySecondFont;
+    src: url(als-script/alsscrp.ttf);
+}
+
+@font-face {
+    font-family: myThirdFont;
+    src: url(anydore/Anydore.otf);
+}
+
+
+
+
+    </style>
 </head>
 <body>
     <form action='/account' method='post'>
@@ -38,5 +139,7 @@
             </div>
         </div>
     </form>
+    
 </body>
+
 </html>

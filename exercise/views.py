@@ -180,6 +180,18 @@ def external(request):
     return render(request,"Exercise/exercisepage.html")
 
 
+def veglunch(request):
+    return render(request,"Exercise/vlunch.html")
+
+def nonveglunch(request):
+    return render(request,"Exercise/nvlunch.html")
+
+def veg(request):
+    return render(request,"Exercise/vbled.html")
+
+def non_veg(request):
+    return render(request,"Exercise/nvbled.html")
+
 def logout(request):
     logout(request)
     messages.success(request,"Logged out Successfully!")

@@ -12,12 +12,16 @@ urlpatterns = [
 
 
     path('workout',views.workout,name='workout'),
-    path('exercise',views.exercise,name='eexercise'),
+    path('exercise',views.exercise,name='exercise'),
     path('diseases',views.diseases,name='diseases'),
     path('profile',views.profile,name='profile'),
     path('settings',views.setting,name='setting'),
     path('food',views.food,name='Diet'),
     path("external",views.external,name="external"),
+    path("vlunch",views.veglunch,name='veg'),
+    path("nvlunch",views.nonveglunch,name="non veg"),
+    path("vbled",views.veg,name="veg"),
+    path("nvbled",views.non_veg,name="non veg"),
 
 
     path('error',views.error,name='error'),
