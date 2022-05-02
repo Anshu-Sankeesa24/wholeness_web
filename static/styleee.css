@@ -27,16 +27,18 @@
     right: 2.4cm;
 }
 
-
-
-
-
-
-
-
-
-
-
+.menu_text a:hover{
+    color: #000;
+}
+/* .row{
+    display: flex !important;
+    position: sticky !important;
+    top: 0;
+}
+ul{
+    display: flex;
+    list-style: none;
+} */
 
 
 * {
@@ -224,7 +226,7 @@ button {
 }
 
 .layout_padding {
-     padding-top: 90px;
+     padding-top: 45px;
      padding-bottom: 0px;
 }
 
@@ -811,7 +813,7 @@ button {
     float: left;
     font-size: 30px;
     color: #fffcf4;
-    border-bottom: 0px solid#49bcfe;
+    border-bottom: 0px solid #49bcfe;
     padding-top: 20PX;
 }
 

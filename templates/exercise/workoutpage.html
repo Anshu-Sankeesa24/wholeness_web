@@ -6,13 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workouts</title>
     <link rel="stylesheet" href="../../static/workoutpage.css">
-    <link rel="stylesheet" href="../../static/popup.css">
   <!-- jquery link -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- font awesome link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
 </head>
 <body>
+
+  <header>
+        
+
+        
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <img class="logo" src="../../static/wholenesslogo.png" alt="">
+            
+            <form id="form" role="search">
+                <input type="search" id="query" name="q"
+                 placeholder="Search..."
+                 aria-label="Search through site content">
+                 <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+
+            <a class="navbar-brand" href="/workoutpage">WorkOuts</a>
+            <a class="navbar-brand" href="/food">Diet</a>
+            <a class="navbar-brand" href="/diseases">Diseases</a>
+            <a class="navbar-brand" href="/challenges">Challenges</a>
+            <a class="navbar-brand" href="/shop">Shop</a>
+
+            <div class="dropdown">
+                <a onclick="this.blur();" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-caret" aria-hidden="true"></i>
+
+                </a>
+              
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/wishlist">WishList</a></li>
+                  <li><a class="dropdown-item" href="/settings">Settings</a></li>
+                  <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+        
+    
+
+    </nav>
+</header>
+  
+  
+
     <!-- <div class="sidenav">
         <a href="#filter1">filter1</a>
         <a href="#filter2">filter2</a>
@@ -22,20 +75,15 @@
         <a href="#filter6">filter6</a>
       </div> -->
 
-    <div class="container">
+    <div class="Container">
       
       
 
 
         <div class="Box">
-
-            
-            <a href="/exercise"><img src="../../static/workout1.jpg" alt=""></a>
-
-          <div class="video-play" data-link="https://youtu.be/b2l4zTS8lPg" onclick=popupStatus()>
-            <!-- <img src="../../static/workout1.jpg" alt=""> -->
+        
+            <a href="/pullup"><img src="../../static/workout1.jpg" alt=""></a>
             <div class="wname">Pull Ups</div>
-          </div>
 
             <div class="calories">Cal:-123</div>
 
@@ -101,64 +149,11 @@
         <div class="Box">Box 2</div>
         <div class="Box">Box 3</div>
         <div class="Box">Box 4</div>
-        <div class="Box">Box 1</div>
-        <div class="Box">Box 2</div>
-        <div class="Box">Box 3</div>
-        <div class="Box">Box 4</div>
-        <div class="Box">Box 1</div>
-        <div class="Box">Box 2</div>
-        <div class="Box">Box 3</div>
-        <div class="Box">Box 4</div>
-        <div class="Box">Box 1</div>
-        <div class="Box">Box 2</div>
-        <div class="Box">Box 3</div>
-        <div class="Box">Box 4</div>
+        
     </div>
-    <div class="popup-wrapper inactive">
-      <div class="pop-up">
-        <i class="fa fa-close" style="font-size: 24px;" onclick="closePopUp()"></i>
-        <iframe width="50%" height="50%" src="https://www.youtube.com/embed/l-EkcthUMl4?list=PLfqMhTWNBTe3H6c9OGXb5_6wcc1Mca52n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <div class="video-wrapper"></div>
-          <div class="info-wrapper">
-            <div class="heading">PUSH-UPS</div>
-            <div class="text-info">Lorem ipsum, dolor sit amet
-               consectetur adipisicing elit. Et quis, eum magni 
-               unde velit a alias quidem itaque tempore, earum 
-               laboriosam? Accusantium repellendus temporibus esse 
-              itaque quisquam odio deleniti praesentium.</div>
-          </div>
-      </div>
-    </div>
+
+
+
 </body>
 
-<script>
-    const like_button = document.querySelectorAll('i.like');
-    const popup =document.getElementsByClassName('popup-wrapper')[0];
-    console.log(like_button)
-    like_button.forEach((i,index)=>i.addEventListener('click',(e)=>{
-      e.target.classList.toggle('press');
-      if(e.target.classList.contains('press')){
-        e.target.dataset.liked="true";
-        console.log(e.target.dataset);
-      }
-      else{
-        e.target.dataset.liked="false";
-        console.log(e.target.dataset)
-      }
-    }))   
-
-    function popupStatus(e){
-
-      const videoPlay = document.querySelectorAll('.video-play');
-
-      console.log(videoPlay);
-      this.addEventListener('click',()=>{popup.classList.remove('inactive');})
-      
-    }
-
-    function closePopUp(){
-      this.addEventListener('click',()=>{popup.classList.add('inactive')})
-    }
-
-</script>
 </html>
