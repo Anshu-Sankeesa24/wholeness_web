@@ -1,5 +1,5 @@
 from base64 import urlsafe_b64decode, urlsafe_b64encode
-from datetime import datetime
+from datetime import datetime,date,timedelta
 from email import message
 import email
 from lib2to3.pgen2.tokenize import generate_tokens
@@ -9,7 +9,7 @@ from django.shortcuts import redirect, render,HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from exercise.models import user
+from exercise.models import user_login,user_detail
 from wholeness import settings
 from django.core.mail import send_mail,EmailMessage
 from django.template.loader import render_to_string
@@ -18,11 +18,11 @@ from django.utils.encoding import force_bytes,force_str
 from . tokens import generate_token
 from formtools.wizard.views import SessionWizardView
 import uuid
-from .models import user
+from .models import user_detail,user_login
 from django.conf import settings
 from subprocess import run, PIPE
 import sys
-
+from dateutil.relativedelta import relativedelta
 
 
 # Create your views here.
@@ -31,13 +31,19 @@ def index(request):
 
 
 def home(request,user=''):
+    dob= user_detail.objects.all()[0].dob
+    gender= user_detail.objects.all()[0].gender
     
-    # dob=user.dob
-    # age=datetime.today-dob
-    # gender=user.gender
-    context={ "age":50,  "gender":'male'}
-   
-
+    # dob=user.Dob
+    age=date.today()-dob
+    
+    # print(age- relativedelta(years=years)/365)
+    seconds_in_year = 365.25*24*60*60
+    age=int(age.total_seconds() / seconds_in_year)
+    # gender=user.Gender
+    context={ "age":age,  "gender":gender}
+    # context={ }
+    # context["user"] = user_detail.objects.all()
 
     return render(request,"Exercise/home.html",context)
 
@@ -53,7 +59,7 @@ def register(request):
         
         name= fname+" " +lname
 
-        my_user=user(name=name,gender=gender,dob=dob,height=height,weight=weight,email=email)
+        my_user=user_detail(name=name,gender=gender,dob=dob,height=height,weight=weight,email=email)
         #user_obj=User.objects.create_user(name=fname+" "+lname,gender=gender,dob=dob,height=height,weight=weight,email=email)
         my_user.is_verified =False
         my_user.save()
@@ -90,9 +96,9 @@ def activate(request,uidb64,token):
     
     try:
         uid=force_str(urlsafe_b64decode(uidb64))
-        my_user =user.objects.get(pk=uid)
+        my_user =user_detail.objects.get(pk=uid)
 
-    except(TypeError,ValueError,OverflowError,user.DoesNotExist):
+    except(TypeError,ValueError,OverflowError,user_detail.DoesNotExist):
         my_user=None
     
     if my_user is not None and generate_token.check_token(my_user,token):
@@ -111,7 +117,7 @@ def account(request,my_user):
         pass1=request.POST['pass1']
         pass2=request.POST['pass2']
 
-        if user.objects.filter(username==username):
+        if user_login.objects.filter(username==username):
             messages.error(request,"username is already exist! please try another username ")
             return redirect(' account ')
         if pass1!=pass2:
@@ -133,7 +139,7 @@ def login(request):
         pass1=request.POST['pass1']
         #return redirect('home')
 
-        user=authenticate(username=username,password=pass1)
+        user=exercise(username=username,password=pass1)
 
         if user is not None:
             login(request,user)
@@ -192,7 +198,7 @@ def veg(request):
 def non_veg(request):
     return render(request,"Exercise/nvbled.html")
 
-def logout(request):
+def Logout(request):
     logout(request)
     messages.success(request,"Logged out Successfully!")
     return redirect('index')

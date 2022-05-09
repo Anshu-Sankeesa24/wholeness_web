@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import virtual_assistance as va
+import time
 
 mp_drawing =mp.solutions.drawing_utils
 mp_pose =mp.solutions.pose
@@ -16,6 +17,23 @@ def calculate(a,b,c):
         angle=360-angle
     return angle
 
+
+
+def countdown(time_sec):
+    while time_sec:
+        mins, secs = divmod(time_sec, 60)
+        # timeformat = '{:02d}:{:02d}'.format(mins, secs)
+        timeformat = '{:d}'.format(secs)
+        print(timeformat, end='\r')
+        time.sleep(1)
+        time_sec -= 1
+        va.talk(timeformat)
+
+    print("stop")
+    return timeformat
+
+
+
 cap=cv2.cv2.VideoCapture(0)
 
 # curl counter variable
@@ -25,10 +43,25 @@ positive=['ok','yes','yeah','sure','obviously','easily','continue','yess']
 negative=['stop','no','enough','wait',"can't do any more",'na']
 # setuping mediapipe instance
 with mp_pose.Pose(min_detection_confidence =0.5 , min_tracking_confidence=0.5) as pose:
+    va.talk(" How many seconds do you want to do? ")
+    cmd='30'
+    cmd = va.take_command()
+    # cmd="60"
+    numbers = set()
+    print(numbers)
+    for word in cmd.split():
+        if word.isdigit():
+            numbers.add(int(word))
+    print(numbers)
+    num=max(numbers)
+    print(num)
+    n=num
+    TIME=n
+    va.talk("ok! now, lets start")
     va.talk(3)
     va.talk(2)
     va.talk(1)
-    va.talk('start')
+    va.talk('go')
     while cap.isOpened():
         ret,frame=cap.read()
         # recolouring image to rgb
@@ -61,6 +94,8 @@ with mp_pose.Pose(min_detection_confidence =0.5 , min_tracking_confidence=0.5) a
             left_wrist=[landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x,landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y]
             left_hip=[landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
             left_knee=[landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y]
+            left_ankle=[landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].x,landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].y]
+
 
             #right points
             right_shoulder=[landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
@@ -68,33 +103,41 @@ with mp_pose.Pose(min_detection_confidence =0.5 , min_tracking_confidence=0.5) a
             right_wrist=[landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y]
             right_hip=[landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
             right_knee=[landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y]
+            right_ankle=[landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].y]
+
 
             #calculating angle
-            # angle_left_shoulder =calculate(left_hip,left_shoulder,left_elbow)
+            angle_left_shoulder =calculate(left_hip,left_shoulder,left_elbow)
             angle_left_elbow =calculate(left_shoulder,left_elbow,left_wrist)
             angle_left_hip=calculate(left_shoulder,left_hip,left_knee)
+            angle_left_knee=calculate(left_hip,left_knee,left_ankle)
 
             angle_right_shoulder =calculate(right_hip,right_shoulder,right_elbow)
             angle_right_elbow =calculate(right_shoulder,right_elbow,right_wrist)
             angle_right_hip=calculate(right_shoulder,right_hip,right_knee)
+            angle_right_knee=calculate(left_hip,left_knee,right_ankle)
 
             #asigning angle with respect to cam size
 
             tuple(np.multiply(left_elbow ,[640,480]).astype(int))
             tuple(np.multiply(left_shoulder ,[640,480]).astype(int))
             tuple(np.multiply(left_hip ,[640,480]).astype(int))
+            tuple(np.multiply(left_knee ,[640,480]).astype(int))
 
 
             tuple(np.multiply(right_hip ,[640,480]).astype(int))            
             tuple(np.multiply(right_elbow ,[640,480]).astype(int))
             tuple(np.multiply(right_shoulder ,[640,480]).astype(int))
+            tuple(np.multiply(right_knee ,[640,480]).astype(int))
 
 
             # visualizing angle
 
-            # cv2.putText(image,str(angle_left_elbow),
-            #             tuple(np.multiply(left_elbow ,[640,480]).astype(int)),
-            #             cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
+
+            #left visualisation
+            cv2.putText(image,str(angle_left_elbow),
+                        tuple(np.multiply(left_elbow ,[640,480]).astype(int)),
+                        cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
             
 
             cv2.putText(image,str(angle_left_shoulder),
@@ -105,62 +148,123 @@ with mp_pose.Pose(min_detection_confidence =0.5 , min_tracking_confidence=0.5) a
                         tuple(np.multiply(left_hip ,[640,480]).astype(int)),
                         cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
 
-            cv2.putText(image,str(angle_right_hip),
-                        tuple(np.multiply(right_hip ,[640,480]).astype(int)),
+            cv2.putText(image,str(angle_left_knee),
+                        tuple(np.multiply(left_knee ,[640,480]).astype(int)),
                         cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
+
             
-            # cv2.putText(image,str(angle_right_elbow),
-            #             tuple(np.multiply(right_elbow ,[640,480]).astype(int)),
-            #             cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
+            #right visulisation 
+            cv2.putText(image,str(angle_right_elbow),
+                        tuple(np.multiply(right_elbow ,[640,480]).astype(int)),
+                        cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
             
 
             cv2.putText(image,str(angle_right_shoulder),
                         tuple(np.multiply(right_shoulder ,[640,480]).astype(int)),
                         cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
+
+            cv2.putText(image,str(angle_right_hip),
+                        tuple(np.multiply(right_hip ,[640,480]).astype(int)),
+                        cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
             
+            cv2.putText(image,str(angle_right_knee),
+                        tuple(np.multiply(right_knee ,[640,480]).astype(int)),
+                        cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),2,cv2.LINE_AA)
             
-            if 170<=angle_left_hip<=180 and 170<=angle_right_hip<=180:
+            if n==0:
+                break
+
+            
+            if angle_left_hip>150 and angle_right_hip>150 and angle_left_knee>150 and angle_right_knee>150:
+                if angle_left_elbow>50 and angle_left_elbow<110 and angle_right_elbow<110 and angle_right_elbow>50:
+                    if angle_right_shoulder>50 and angle_left_shoulder<110 and angle_left_shoulder>50 and angle_right_shoulder<110:
+                        
+                        
+                        mins, secs = divmod(n, 60)
+                        # timeformat = '{:02d}:{:02d}'.format(mins, secs)
+                        timeformat = '{:d}'.format(secs)
+                        print(timeformat, end='\r')
+                        time.sleep(1)
+                        n -= 1
+                        va.talk(timeformat)
+                        TIME=timeformat
+                        if n==0:
+                            va.talk("great job")
+                            calories=num*0.084
+                            calories=str(round(calories,2))
+                            txt='you burn ',calories,"calories"
+                            print('you burn',calories,"calories")
+                            va.talk(txt)
+                            # va.talk('you burn ',calories,"calories")
+                            print("stop")
+                            
+                            
+
+
+                    elif angle_right_shoulder>100 and angle_left_shoulder>100:
+                        va.talk("move your arms towards your body")
+                    elif angle_right_shoulder<50 and angle_left_shoulder<50:
+                        va.talk("Keep your arms slightly forward") 
+                    else:
+                        va.talk("please check shoulder angle")
+
+                elif angle_left_elbow<50 and angle_right_elbow<50:
+                    va.talk("keep your forearm down ")
+                
+                else:
+                    va.talk("please check elbow angle")
+
+            elif angle_left_hip<150 and angle_right_hip<150 and angle_left_knee>150 and angle_right_knee>150:
+                va.talk("slightly, ... lower your hip  ")
+
+            elif angle_left_hip<150 and angle_right_hip<150 and angle_left_knee<150 and angle_right_knee<150 and angle_left_knee>100 and angle_right_knee>100:
+                va.talk("keep your knees straight ")        
+
+            elif angle_left_hip<150 and angle_right_hip<150 and angle_left_knee<150 and angle_right_knee<150:
+                va.talk("come on lets finish this task  ")    
+            
+            else:
+                va.talk("please check hip angle")
+
+
+            
+            # if angle_left_hip>150 and angle_right_hip>150:
                 
 
-                if 80<=angle_left_elbow<=90 and 80<=angle_right_elbow<=90:
-                    stage="Down"
-                    va.talk(stage)
-                if angle_left_elbow<95 and angle_right_elbow<95 and stage=="Down":
-                    stage='up'
-                    va.talk(stage)
-                    counter+=1
-                    print(counter)
+            #     if angle_left_elbow>160 and angle_right_elbow>160:
+            #         stage="Down"
+            #         va.talk(stage)
+            #     if angle_left_elbow<95 and angle_right_elbow<95 and stage=="Down":
+            #         stage='up'
+            #         va.talk(stage)
+            #         counter+=1
+            #         print(counter)
 
-                if counter ==10:
-                    va.talk("come on you can do it, just 5 more")
+            #     if counter ==10:
+            #         va.talk("come on you can do it, just 5 more")
                 
                 
-                #if counter >10:
-                    #va.talk(counter)
+            #     #if counter >10:
+            #         #va.talk(counter)
                 
-                if counter ==15 :
-                    va.talk("nice job, you have reached your goal")
-                    va.talk("do you want to continue")
-                    cmd = va.take_command()
-                    print(cmd)
-                if cmd in positive:
-                    if counter >=15 and counter <=20:
-                        va.talk(counter)
-                        va.talk("great efforts")
+            #     if counter ==15 :
+            #         va.talk("nice job, you have reached your goal")
+            #         va.talk("do you want to continue")
+            #         cmd = va.take_command()
+            #         print(cmd)
+            #     if cmd in positive:
+            #         if counter >=15:
+            #             va.talk(counter)
+            #             va.talk("great efforts")
                     
-                    if counter>=20:
+            #         if counter>20:
 
-                        va.talk("great job. you had burn 8 calories")
-                        break
-                if cmd in negative:
-                    calories=counter*0.4
-                    va.talk('you burn ',{calories},"calories")
-                    break
-            elif angle_left_elbow<80 and angle_right_elbow<80:
-                va.talk("come on! you can, lets finish this task")
-
-            elif angle_left_hip<150 and angle_right_hip<150 :
-                va.talk("lower your hip")
+            #             va.talk("great job. you had burn 8 calories")
+            #             break
+            #     if cmd in negative:
+            #         calories=counter*0.4
+            #         va.talk('you burn ',{calories},"calories")
+            #         break
 
                          
         except: 
@@ -172,17 +276,17 @@ with mp_pose.Pose(min_detection_confidence =0.5 , min_tracking_confidence=0.5) a
         cv2.rectangle(image,(0,0),(225,73),(120,112,260),-1)
 
         #rep data
-        cv2.putText(image,'REPS',(15,20),
+        cv2.putText(image,'GOAL',(15,20),
                     cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,0,0),1,cv2.LINE_AA)
-        cv2.putText(image,str(counter),
+        cv2.putText(image,str(num),
                     ( 10,60),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2,cv2.LINE_AA)
 
 
         #stage data
 
-        cv2.putText(image,'STAGE',(90,20),
+        cv2.putText(image,'TIME',(90,20),
                     cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,0,0),1,cv2.LINE_AA)
-        cv2.putText(image,stage,
+        cv2.putText(image,str(TIME),
                     (80,60),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2,cv2.LINE_AA)
 
 
