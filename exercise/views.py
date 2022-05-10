@@ -67,7 +67,6 @@ def register(request):
         my_user.save()
         messages.success(request,"your details had been stored succesfully")
         
-        messages.success(request,"before email sent")
         send_mail_verify(request,my_user,email,name)
         messages.success(request,"we have sent an e-mail please check")
         return redirect('success')
@@ -107,17 +106,18 @@ def activate(request,uidb64,token):
         my_user.is_verified=True
         print("hii")
         my_user.save()
-        return redirect('account',my_user)
+        return redirect('account')
     
     else:
         return render(request,'Exercise/signup.html')
 
 
-def account(request,my_user):
+def account(request):
     if request.method=="POST":
         username=request.POST['username']
         pass1=request.POST['pass1']
         pass2=request.POST['pass2']
+        my_user=user_login(username=username,password=pass1)
 
         if user_login.objects.filter(username==username):
             messages.error(request,"username is already exist! please try another username ")
@@ -141,7 +141,7 @@ def login(request):
         pass1=request.POST['pass1']
         #return redirect('home')
 
-        user=exercise(username=username,password=pass1)
+        user=user_login(username=username,password=pass1)
 
         if user is not None:
             login(request,user)
@@ -211,7 +211,7 @@ def external_pushups(request):
     return render(request,"Exercise/pushups.html")
 
 def external_planks(request):
-    out=run([sys.executable,'D:\wholeness\wholeness\exercise\planks.py'],shell=False,stdout=PIPE)
+    out=run([sys.executable,'D:\wholeness\wholeness\exercise\plank.py'],shell=False,stdout=PIPE)
     print(out)
     return render(request,"Exercise/planks.html")
 

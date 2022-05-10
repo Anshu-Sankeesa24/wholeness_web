@@ -20,7 +20,8 @@ def take_command():
         with sr.Microphone() as source:
             print("listening....")
             voice= ls.listen(source)
-            command=ls.recognize_google(voice)       
+            command=ls.recognize_google(voice)
+            command=30       
 
     except:
         pass
