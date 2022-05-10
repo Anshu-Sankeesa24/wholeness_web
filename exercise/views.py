@@ -221,6 +221,15 @@ def veglunch(request):
 def nonveglunch(request):
     return render(request,"Exercise/nvlunch.html")
 
+def nonvegbreak(request):
+    return render(request,"Exercise/nvbfast.html")
+
+def nonvegsnacks(request):
+    return render(request,"Exercise/nvevng.html")
+
+def nonvegdinner(request):
+    return render(request,"Exercise/nvdinner.html")
+
 def veg(request):
     return render(request,"Exercise/vbled.html")
 

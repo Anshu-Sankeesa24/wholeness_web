@@ -24,6 +24,9 @@ urlpatterns = [
     path("externalplank",views.external_planks,name="external"),
     path("vlunch",views.veglunch,name='veg'),
     path("nvlunch",views.nonveglunch,name="non veg"),
+    path("nvbreakfast",views.nonvegbreak,name="non veg"),
+    path("nvdinner",views.nonvegdinner,name="non veg"),
+    path("nvevng",views.nonvegsnacks,name="non veg"),
     path("vbled",views.veg,name="veg"),
     path("nvbled",views.non_veg,name="non veg"),
 
