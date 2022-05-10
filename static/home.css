@@ -130,6 +130,11 @@ div {
 
 }
 
+.navbar-brand:hover{
+  color: #253439 !important;
+  font-size: x-large;
+}
+
 
 @keyframes gradient{
   0%{

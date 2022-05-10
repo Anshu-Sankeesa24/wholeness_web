@@ -40,6 +40,10 @@ ul{
     list-style: none;
 } */
 
+.menu_text a:hover{
+    size: 20px;
+}
+
 
 * {
      box-sizing: border-box !important;
@@ -270,10 +274,13 @@ button {
 
 .menu_text li a {
     color: #ffffff;
+    
 }
 
 .menu_text li a:hover{
-    color: #ffffff;
+    color: #c9c4b3;
+    font-weight: bold;
+    
 }
 
 .overlay {
