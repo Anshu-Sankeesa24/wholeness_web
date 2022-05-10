@@ -64,8 +64,10 @@
         </nav>
         {% if user.is_authenticated %}
         <h1> </h1>
-        <h3 color="white" >hello {{fname}}, </h3>
-        <h4>you are successfully logged in </h4>
+        <script>
+            alert(" hello" + fname+",\n you are successfully logged in ") 
+        
+        </script>
         {% endif %}
 
     </header>
@@ -107,7 +109,6 @@
     </button>
 </div>
 {% endfor %}
-
 
 
 

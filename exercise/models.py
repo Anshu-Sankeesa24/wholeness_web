@@ -43,3 +43,10 @@ class user_login(models.Model):
     def __str__(self):
         return self.username
     
+
+class week_weight(models.Model):
+    week = models.FloatField(max_length=20)
+    weight = models.FloatField(max_length=20)
+
+    def __str__(self):
+        return str(self.week)

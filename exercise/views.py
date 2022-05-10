@@ -23,6 +23,8 @@ from django.conf import settings
 from subprocess import run, PIPE
 import sys
 from dateutil.relativedelta import relativedelta
+from .models import week_weight
+from .utils import get_plot
 
 
 # Create your views here.
@@ -152,7 +154,26 @@ def login(request):
 
     return render(request,"Exercise/login.html")
 
+def main_view(request):
+  if request.method=="POST":
+    week=request.POST['week']
+    weight=request.POST['weight']
+  
+    data=week_weight(week=week,weight=weight)
 
+    data.save()
+
+    return redirect('graph')
+
+  return render(request,'Exercise/profilepage.html')
+
+def graph(request):
+
+  qs = week_weight.objects.all()
+  x=[x.week for x in qs]
+  y=[y.weight for y in qs]
+  chart = get_plot(x,y)
+  return render(request,'Exercise/profilepage.html',{'chart': chart})
 
 
 def workout(request):
@@ -176,15 +197,23 @@ def error(request):
 def success(request):
     return render(request,"Exercise/success.html")
 
-def exercise(request):
+def pushup(request):
     
-    return render(request,"Exercise/exercisepage.html")
+    return render(request,"Exercise/pushups.html")
 
-def external(request):
+def planks(request):
+    
+    return render(request,"Exercise/planks.html")
+
+def external_pushups(request):
     out=run([sys.executable,'D:\wholeness\wholeness\exercise\pushup.py'],shell=False,stdout=PIPE)
     print(out)
-    return render(request,"Exercise/exercisepage.html")
+    return render(request,"Exercise/pushups.html")
 
+def external_planks(request):
+    out=run([sys.executable,'D:\wholeness\wholeness\exercise\planks.py'],shell=False,stdout=PIPE)
+    print(out)
+    return render(request,"Exercise/planks.html")
 
 def veglunch(request):
     return render(request,"Exercise/vlunch.html")
@@ -197,6 +226,37 @@ def veg(request):
 
 def non_veg(request):
     return render(request,"Exercise/nvbled.html")
+
+
+
+def heart(request):
+    return render(request,'diseases/heartdis.html')
+
+def bladder(request):
+    return render(request,'diseases/bladderdis.html')
+
+def digestive(request):
+    return render(request,'diseases/digestivedis.html')
+
+def femrep(request):
+    return render(request,'diseases/femalereproductivesystemdis.html')
+
+def kidney(request):
+    return render(request,'diseases/kidneysdis.html')
+
+def liver(request):
+    return render(request,'diseases/liverdis.html')
+
+def malrep(request):
+    return render(request,'diseases/malereproductivesystemdis.html')
+
+def pancreases(request):
+    return render(request,'diseases/pancreasesdis.html')
+
+def respiratory(request):
+    return render(request,'diseases/respiratorydis.html')
+
+
 
 def Logout(request):
     logout(request)

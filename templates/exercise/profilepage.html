@@ -172,6 +172,12 @@
                             <h5 class="text-custom">Senior Graphic Designer</h5>
                             <p class="mb-0">coderthemes.com</p>
                             <p><b>2007-2009</b></p>
+                            <form action="/profile_main" method = "POST">
+                                {% csrf_token %}
+                                <input type="text" name="week" id="name" placeholder="week" required>
+                                <input type="text" name="weight" id="name" placeholder="weight" required>
+                                <button type ="submit"><a>submit</a></button>
+                            </form>
                             <p class="text-muted font-13 mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                         </div>
                     </div>
@@ -179,7 +185,10 @@
                 <div class="card-box">
                     <h4 class="header-title mb-3">My Projects</h4>
                     <div class="table-responsive">
-                        <table class="table">
+                        <h2>The chart for weight transition</h2>
+                        <img src="data:image/png;base64, {{chart|safe}}">
+                        <!-- <table class="table">
+
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -232,7 +241,7 @@
                                     <td>Coderthemes</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>

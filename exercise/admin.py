@@ -5,3 +5,4 @@ from .models import *
 
 admin.site.register(user_detail)
 admin.site.register(user_login)
+admin.site.register(week_weight)
